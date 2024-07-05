@@ -13,7 +13,7 @@ pip install -r requirements.txt
 After installation process run `bash inspy.sh` command to run the tool.
 
 # Warning [AGE RESTRICTED (NOT FOR UNDER +22)]
-DarkWeb is a place of Danger so before executing this tool you need to follow some safety precautions
+DarkWeb is a place of Danger, so before executing this tool you need to follow some safety precautions
 
 1) Use VPN or Proxy as your choice
 2) If you not a Security Resharcher then do not download any Executables from Dark web
