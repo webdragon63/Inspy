@@ -14,7 +14,7 @@ pip install -r requirements2.txt
 pip install torbot
 ```
 # Execution of this tool
-After installation process run `bash inspy.sh` command to run the tool.
+After the installation process completed just type `bash inspy.sh` command on your terminal to run the tool.
 
 # Warning [AGE RESTRICTED (NOT FOR UNDER 22+)]
 DarkWeb is a place of Danger, so before executing this tool you need to follow some safety precautions
