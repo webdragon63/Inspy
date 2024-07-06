@@ -20,7 +20,7 @@ After installation process run `bash inspy.sh` command to run the tool.
 DarkWeb is a place of Danger, so before executing this tool you need to follow some safety precautions
 
 1) Use VPN or Proxy as your choice
-2) If you not a Security Resharcher then do not download any Executables from Dark web
+2) If you not a Security Researcher then do not download any Executables from Dark web
 3) Always stay away from suspicious link
 4) Do not share your personal info on Dark Web (e.g credit card number, name, address, personal details, bank details, etc)
 
