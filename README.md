@@ -19,7 +19,7 @@ After the installation process completed just type `bash inspy.sh` command on yo
 # Warning [AGE RESTRICTED (NOT FOR UNDER 22+)]
 DarkWeb is a place of Danger, so before executing this tool you need to follow some safety precautions
 
-1) Use VPN or Proxy as your choice
+1) Use VPN or Proxy as your choice to hide your public IP
 2) If you not a Security Researcher then do not download any Executables from Dark web
 3) Always stay away from suspicious links
 4) Do not share your personal info on Dark Web (e.g credit card number, name, address, personal details, bank details, etc)
