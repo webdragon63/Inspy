@@ -16,7 +16,7 @@ pip install torbot
 # Execution of this tool
 After installation process run `bash inspy.sh` command to run the tool.
 
-# Warning [AGE RESTRICTED (NOT FOR UNDER +22)]
+# Warning [AGE RESTRICTED (NOT FOR UNDER 22+)]
 DarkWeb is a place of Danger, so before executing this tool you need to follow some safety precautions
 
 1) Use VPN or Proxy as your choice
