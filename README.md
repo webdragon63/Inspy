@@ -21,7 +21,7 @@ DarkWeb is a place of Danger, so before executing this tool you need to follow s
 
 1) Use VPN or Proxy as your choice
 2) If you not a Security Researcher then do not download any Executables from Dark web
-3) Always stay away from suspicious link
+3) Always stay away from suspicious links
 4) Do not share your personal info on Dark Web (e.g credit card number, name, address, personal details, bank details, etc)
 
 ## Handel this tool with a great responsibility
