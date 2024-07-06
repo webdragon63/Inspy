@@ -7,7 +7,9 @@ Run as Root
 ```shell
 git clone https://github.com/webdragon63/Inspy.git
 cd Inspy
-pip install -r requirements.txt
+pip install -r requirements1.txt
+pip install -r requirements2.txt
+pip install torbot
 ```
 # Execution of this tool
 After installation process run `bash inspy.sh` command to run the tool.
