@@ -1,8 +1,11 @@
 # About Inspy
 This is the advance Darkweb OSINT tool that allow to investigate Darkweb using crawling method and allow to srape images from darkweb websites.
 This tool also contain Villain c2 tool for advance penetration testing purpose.
-# Interface
+# Starting Interface
 ![Screenshot at 2024-07-05 16-26-33](https://github.com/webdragon63/Inspy/assets/117004849/e617e465-7944-4cc3-8a7e-8036536877d9)
+# Crawler Interface
+
+![Screenshot at 2024-07-08 08-10-49](https://github.com/webdragon63/Inspy/assets/117004849/4d868f1e-f48d-4ace-91c2-5f222c073698)
 
 # Installation
 ## Disclaimer 
