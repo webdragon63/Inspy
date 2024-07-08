@@ -5,7 +5,9 @@ This tool also contain Villain c2 tool for advance penetration testing purpose.
 ![Screenshot at 2024-07-05 16-26-33](https://github.com/webdragon63/Inspy/assets/117004849/e617e465-7944-4cc3-8a7e-8036536877d9)
 
 # Installation
-Run as Root
+## Disclaimer 
+### If you run any command as a non root user then you may face error wile running the web crawler.
+So Run all command as a Root
 ```shell
 git clone https://github.com/webdragon63/Inspy.git
 cd Inspy
@@ -13,8 +15,7 @@ pip install -r requirements1.txt
 pip install -r requirements2.txt
 pip install torbot
 ```
-## Disclaimer 
-### If you run any command as a non root user then you may face error wile running the web crawler.
+
 # Execution of this tool
 After the installation process completed just type `bash inspy.sh` command on your terminal to run the tool.
 
