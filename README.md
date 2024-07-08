@@ -5,7 +5,7 @@ This tool also contain Villain c2 tool for advance penetration testing purpose.
 ![Screenshot at 2024-07-05 16-26-33](https://github.com/webdragon63/Inspy/assets/117004849/e617e465-7944-4cc3-8a7e-8036536877d9)
 # Crawler Interface
 
-![Screenshot at 2024-07-08 08-10-49](https://github.com/webdragon63/Inspy/assets/117004849/4d868f1e-f48d-4ace-91c2-5f222c073698)
+![Screenshot at 2024-07-08 08-15-49](https://github.com/webdragon63/Inspy/assets/117004849/03e88b34-cd4d-494e-b04a-3563b0a3b77a)
 
 # Installation
 ## Disclaimer 
