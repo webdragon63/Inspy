@@ -27,7 +27,7 @@ esac
 read -p "In Depth 1 or 2 ( If you gets error for your network speed then run on 1):" n
 python3 src/tor-crawl/main.py -u $web --depth $n
 
-read -p "Do you want to srape images from the website
+read -p "Do you want to scrape images from the website
 a) Yes I Want
 b) Not Yet, Just Exit
 (Select a or b) :" ab
