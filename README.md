@@ -6,7 +6,10 @@ This tool also contain Villain c2 tool for advance penetration testing purpose.
 
 # Installation
 ## Disclaimer 
-### If you run any command as a non root user then you may face error while running the web crawler.
+### If you run any command as a non root user then you may face this error while running the web crawler.
+
+![Screenshot at 2024-07-08 08-05-13](https://github.com/webdragon63/Inspy/assets/117004849/afac5438-2723-4119-9c17-4b194179a24a)
+
 So Run all command as a Root User Using `sudo su` command
 ```shell
 git clone https://github.com/webdragon63/Inspy.git
