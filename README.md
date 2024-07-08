@@ -13,6 +13,8 @@ pip install -r requirements1.txt
 pip install -r requirements2.txt
 pip install torbot
 ```
+## Disclaimer 
+### If you run any command as a non root user then you may face error wile running the web crawler.
 # Execution of this tool
 After the installation process completed just type `bash inspy.sh` command on your terminal to run the tool.
 
