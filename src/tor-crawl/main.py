@@ -42,7 +42,7 @@ def print_header(version: str) -> None:
     title = r"""
                                     {banner}
                Inspy - Dark Web OSINT Tool
-               GitHub : https://github.com/webdragon63/inspy.git
+               GitHub : https://github.com/webdragon63/Inspy.git
                
             """
 
