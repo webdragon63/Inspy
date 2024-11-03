@@ -23,6 +23,13 @@ pip install -r requirements1.txt
 pip install -r requirements2.txt
 pip install torbot
 ```
+# IF YOU FACE ANY ERRORS IN THIS CODE
+## Then install these libraries
+```shell
+pip install -U attrs
+pip install httpx trio outcome
+pip install 'attrs<22.2'
+```
 
 # Execution of this tool
 After the installation process completed just type `bash inspy.sh` command on your terminal to run the tool.
