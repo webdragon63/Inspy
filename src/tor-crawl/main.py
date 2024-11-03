@@ -1,4 +1,3 @@
-
 import os
 import argparse
 import sys
@@ -15,15 +14,17 @@ from torbot.modules.linktree import LinkTree
 
 def print_tor_ip_address(client: httpx.Client) -> None:
     """
-    https://check.torproject.org/ tells you if you are using tor and it
-    displays your IP address which we scape and display
+    Displays the IP address obtained via Tor Project's API, with error handling.
     """
-    resp = get_ip(client)
-    print(resp["header"])
-    print(color(resp["body"], "yellow"))
+    try:
+        resp = get_ip(client)
+        print(resp.get("header", "No header available"))
+        print(color(resp.get("body", "No body available"), "yellow"))
+    except Exception as e:
+        logging.error(f"Failed to retrieve IP address: {e}")
 
 
-def print_header(version: str) -> None:
+def print_header(version: str = "Unknown") -> None:
     """
     Prints the TorBot banner including version and license.
     """
@@ -34,19 +35,15 @@ def print_header(version: str) -> None:
                               ░▀▀▀░▀░▀░▀▀▀░▀░░░░▀░
                                                                                                                 
  ---------ＡＮ  ＡＤＶＡＮＣＥ  ＤＡＲＫＷＥＢ  ＯＳＩＮＴ  ＴＯＯＬ----------
-            """.format(
-        VERSION=version
-    )
+    """
     banner = color(banner, "red")
 
-    title = r"""
+    title = f"""
                                     {banner}
                Inspy - Dark Web OSINT Tool
                GitHub : https://github.com/webdragon63/Inspy.git
-               
+               Version: {version}
             """
-
-    title = title.format(license_msg=license_msg, banner=banner)
     print(title)
 
 
@@ -59,51 +56,66 @@ def run(arg_parser: argparse.ArgumentParser, version: str) -> None:
     logging_lvl = logging.DEBUG if args.v else logging.INFO
     logging.basicConfig(level=logging_lvl, format=logging_fmt, datefmt=date_fmt)
 
-    # URL is a required argument
+    # Ensure URL is provided
     if not args.url:
         arg_parser.print_help()
-        sys.exit()
+        sys.exit("Error: URL is a required argument.")
 
-    # Print verison then exit
+    # Display version information
     if args.version:
         print(f"TorBot Version: {version}")
         sys.exit()
 
-    # check version and update if necessary
+    # Update TorBot version if requested
     if args.update:
-        check_version()
+        try:
+            check_version()
+        except Exception as e:
+            logging.error(f"Failed to check or update version: {e}")
         sys.exit()
 
-    socks5_host = args.host
-    socks5_port = str(args.port)
-    socks5_proxy = f"socks5://{socks5_host}:{socks5_port}"
-    with httpx.Client(
-        timeout=60, proxies=socks5_proxy if not args.disable_socks5 else None
-    ) as client:
-        # print header and IP address if not set to quiet
-        if not args.quiet:
-            print_header(version)
-            print_tor_ip_address(client)
+    # Configure SOCKS5 proxy settings
+    socks5_proxy = f"socks5://{args.host}:{args.port}" if not args.disable_socks5 else None
+    try:
+        with httpx.Client(timeout=60, proxies=socks5_proxy) as client:
+            # Display header and IP address if not in quiet mode
+            if not args.quiet:
+                print_header(version)
+                print_tor_ip_address(client)
 
-        if args.info:
-            execute_all(client, args.url)
+            # Execute site info gathering if requested
+            if args.info:
+                try:
+                    execute_all(client, args.url)
+                except Exception as e:
+                    logging.error(f"Error executing site info gathering: {e}")
 
-        tree = LinkTree(url=args.url, depth=args.depth, client=client)
-        tree.load()
+            # Load and display LinkTree
+            try:
+                tree = LinkTree(url=args.url, depth=args.depth, client=client)
+                tree.load()
 
-        # save data if desired
-        if args.save == "tree":
-            tree.save()
-        elif args.save == "json":
-            tree.saveJSON()
+                # Save data if requested
+                if args.save == "tree":
+                    tree.save()
+                elif args.save == "json":
+                    tree.saveJSON()
 
-        # always print something, table is the default
-        if args.visualize == "table" or not args.visualize:
-            tree.showTable()
-        elif args.visualize == "tree":
-            print(tree)
-        elif args.visualize == "json":
-            tree.showJSON()
+                # Display LinkTree based on visualization option
+                if args.visualize == "table" or not args.visualize:
+                    tree.showTable()
+                elif args.visualize == "tree":
+                    print(tree)
+                elif args.visualize == "json":
+                    tree.showJSON()
+
+            except Exception as e:
+                logging.error(f"Failed to load or display LinkTree: {e}")
+
+    except httpx.RequestError as e:
+        logging.error(f"HTTP request error: {e}")
+    except Exception as e:
+        logging.error(f"Unexpected error during client operations: {e}")
 
     print("\n\n")
 
@@ -113,13 +125,13 @@ def set_arguments() -> argparse.ArgumentParser:
     Parses user flags passed to TorBot
     """
     parser = argparse.ArgumentParser(
-        prog="TorBot", usage="Gather and analayze data from Tor sites."
+        prog="TorBot", usage="Gather and analyze data from Tor sites."
     )
     parser.add_argument(
-        "-u", "--url", type=str, required=True, help="Specifiy a website link to crawl"
+        "-u", "--url", type=str, required=True, help="Specify a website link to crawl"
     )
     parser.add_argument(
-        "--depth", type=int, help="Specifiy max depth of crawler (default 1)", default=1
+        "--depth", type=int, help="Specify max depth of crawler (default 1)", default=1
     )
     parser.add_argument(
         "--host", type=str, help="IP address for SOCKS5 proxy", default="127.0.0.1"
@@ -146,9 +158,9 @@ def set_arguments() -> argparse.ArgumentParser:
     parser.add_argument(
         "--info",
         action="store_true",
-        help="Info displays basic info of the scanned site. Only supports a single URL at a time.",
+        help="Display basic info of the scanned site. Only supports a single URL.",
     )
-    parser.add_argument("-v", action="store_true", help="verbose logging")
+    parser.add_argument("-v", action="store_true", help="Enable verbose logging")
     parser.add_argument(
         "--disable-socks5",
         action="store_true",
@@ -162,13 +174,26 @@ if __name__ == "__main__":
     try:
         arg_parser = set_arguments()
         config_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "pyproject.toml")
+
+        # Load version from configuration file
         try:
             with open(config_file_path, "r") as f:
                 data = toml.load(f)
-                version = data["project"]["version"]
+                version = data.get("project", {}).get("version", "0.0.1")  # Default if not found
+        except FileNotFoundError:
+            logging.warning("Configuration file not found, using default version.")
+            version = "0.0.1"
+        except toml.TomlDecodeError as e:
+            logging.error(f"Error parsing TOML file: {e}")
+            version = "0.0.1"
         except Exception as e:
-            raise Exception("unable to find version from pyproject.toml.\n", e)
+            logging.error(f"Unexpected error loading version: {e}")
+            version = "0.0.1"
 
+        # Run main program
         run(arg_parser, version)
+
     except KeyboardInterrupt:
         print("Interrupt received! Exiting cleanly...")
+    except Exception as e:
+        logging.error(f"An unexpected error occurred: {e}")
