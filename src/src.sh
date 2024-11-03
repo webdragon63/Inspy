@@ -1,15 +1,22 @@
 #!/bin/bash
 
 clear
-cat<< EOF
+VERMILION='\033[0;31m'
+WHITE='\033[0;37m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
 
-                              ░▀█▀░█▀█░█▀▀░█▀█░█░█
-                              ░░█░░█░█░▀▀█░█▀▀░░█░
-                              ░▀▀▀░▀░▀░▀▀▀░▀░░░░▀░
+echo -e "${VERMILION}                              ░▀█▀░█▀█░█▀▀░█▀█░█░█"
+echo -e "${WHITE}                              ░░█░░█░█░▀▀█░█▀▀░░█░"
+echo -e "${GREEN}                              ░▀▀▀░▀░▀░▀▀▀░▀░░░░▀░"
                                                                                                                 
- ---------ＡＮ  ＡＤＶＡＮＣＥ  ＤＡＲＫＷＥＢ  ＯＳＩＮＴ  ＴＯＯＬ----------
- 
-EOF
+echo -e "${BLUE} ---------ＡＮ  ＡＤＶＡＮＣＥ  ＤＡＲＫＷＥＢ  ＯＳＩＮＴ  ＴＯＯＬ----------"
+                               
+echo -e "${WHITE}                           MADE BY: INDIAN CYBER ARMY "              
+echo -e "${CYAN}           YOUTUBE CHANNEL: https://www.youtube.com/@indiancyberarmy5" 
+echo -e "${CYAN}--------------------------------------------------------------------------------" 
+echo -e "${BLUE}"
 
 read -p " Enter the Link :" web
 read -p "Do you want to crawl deeper
