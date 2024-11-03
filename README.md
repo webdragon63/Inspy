@@ -24,7 +24,7 @@ pip install -r requirements1.txt
 pip install -r requirements2.txt
 pip install torbot
 ```
-# IF YOU FACE ANY ERRORS IN THIS CODE
+# IF YOU FACE ANY ERRORS
 ## Then install these libraries
 ```shell
 pip install -U attrs
