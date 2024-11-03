@@ -3,6 +3,7 @@
 
 This is the advance Darkweb OSINT tool that allow to investigate Darkweb using crawling method and allow to srape images from darkweb websites.
 This tool also contain Villain c2 tool for advance penetration testing purpose.
+# Tested on Parrot OS
 # Starting Interface
 ![Screenshot at 2024-11-03 15-21-30](https://github.com/user-attachments/assets/c012a454-64c5-47f3-bf93-a363bed4edda)
 # Crawler Interface
