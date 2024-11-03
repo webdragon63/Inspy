@@ -4,7 +4,7 @@
 This is the advance Darkweb OSINT tool that allow to investigate Darkweb using crawling method and allow to srape images from darkweb websites.
 This tool also contain Villain c2 tool for advance penetration testing purpose.
 # Starting Interface
-![Screenshot at 2024-07-05 16-26-33](https://github.com/webdragon63/Inspy/assets/117004849/e617e465-7944-4cc3-8a7e-8036536877d9)
+![Screenshot at 2024-11-03 15-21-30](https://github.com/user-attachments/assets/c012a454-64c5-47f3-bf93-a363bed4edda)
 # Crawler Interface
 
 ![Screenshot at 2024-07-08 08-15-49](https://github.com/webdragon63/Inspy/assets/117004849/03e88b34-cd4d-494e-b04a-3563b0a3b77a)
